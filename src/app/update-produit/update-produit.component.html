@@ -1,0 +1,21 @@
+<div class="container mt-4">
+  <h2>Modifier un Produit :</h2>
+  <form (ngSubmit)="updateProduit()">
+    <div class="col-sm-2 mb-3">
+      <label class="form-label">ID Produit</label>
+      <input type="text" [(ngModel)]="currentProduit().idProduit" name="idProduit" class="form-control" disabled>
+    </div>
+
+    <div class="col-sm-6 mb-3">
+      <label class="form-label">Nom Produit</label>
+      <input type="text" [(ngModel)]="currentProduit().nomProduit" name="nomProduit" class="form-control" required>
+    </div>
+
+    <div class="col-sm-3 mb-3">
+      <label class="form-label">Prix Produit</label>
+      <input type="number" [(ngModel)]="currentProduit().prixProduit" name="prixProduit" class="form-control" required>
+    </div>
+
+    <button type="submit" class="btn btn-success">Modifier</button>
+  </form>
+</div>

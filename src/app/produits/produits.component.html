@@ -1,0 +1,31 @@
+<div class="container mt-4">
+  <div class="card shadow mb-4">
+    <div class="card-body">
+      <h3>Nombre : {{ produits().length }}</h3>
+      <table class="table table-striped">
+        <thead>
+          <tr>
+            <th>N°</th><th>Id</th><th>Nom</th><th>Prix</th><th>Date Création</th><th>Actions</th>
+          </tr>
+        </thead>
+        <tbody>
+          @for (produit of produits(); track produit.idProduit; let index = $index) {
+            <tr>
+              <td>{{ index }}</td>
+              <td>{{ produit.idProduit }}</td>
+              <td>{{ produit.nomProduit }}</td>
+              <td>{{ produit.prixProduit }}</td>
+              <td>{{ produit.dateCreation | date:'dd/MM/yyyy' }}</td>
+              <td>
+                <a class="btn btn-success btn-sm me-2" [routerLink]="['/update-produit', produit.idProduit]">Modifier</a>
+                <button class="btn btn-danger btn-sm" (click)="supprimerProduit(produit)">Supprimer</button>
+              </td>
+            </tr>
+          } @empty {
+            <tr><td colspan="6">Aucun produit trouvé !</td></tr>
+          }
+        </tbody>
+      </table>
+    </div>
+  </div>
+</div>
